@@ -8,7 +8,7 @@
 echo "Checking if user is a regular user...."
 sleep 2
 if 
-[ UID -eq 0 ]
+[ ${USER} = root ]
 then
 echo "Installation cannot proceed because user is root, please login as a regular user!"
 sleep 2
@@ -70,7 +70,8 @@ sleep 2
 exit 5
 fi
 
-echo "Checking IP address...."
-IP=`hostname -I|awk -F '{print$2}'`
-
-echo "Type this on your browser: ${IP}:9000"
+#Checking IP address
+IP=`hostname -I |awk '{print$2}'`
+echo "This is your IP address:${IP}"
+sleep 2
+echo "Type the folling into your brower: ${IP}:9000"
