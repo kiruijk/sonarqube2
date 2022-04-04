@@ -8,7 +8,7 @@
 echo "Checking if user is a regular user...."
 sleep 2
 if 
-[ ${USER} = root ]
+[ UID -eq 0 ]
 then
 echo "Installation cannot proceed because user is root, please login as a regular user!"
 sleep 2
